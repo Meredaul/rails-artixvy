@@ -3,6 +3,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    #@artworks = Artwork.all
+    @artworks = Artwork.all
   end
 end

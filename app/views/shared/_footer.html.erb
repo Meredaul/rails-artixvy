@@ -1,12 +1,11 @@
 <div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fa fa-github"></i></a>
-    <a href="#"><i class="fa fa-instagram"></i></a>
-    <a href="#"><i class="fa fa-facebook"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fa fa-heart"></i> at Le Wagon
+  <div class="footer-btns">
+
+    <ul>
+      <li><%= link_to t(".btn-facebook", default: ""), new_user_session_path, class: "fa fa-facebook" %></li>
+      <li><%= link_to t(".btn-instagram", default: ""), new_user_session_path, class: "fa fa-instagram" %></li>
+      <li><%= link_to t(".btn-twitter", default: ""), new_user_session_path, class: "fa fa-twitter" %></li>
+      <li><%= link_to t(".btn-linkedin", default: ""), new_user_session_path, class: "fa fa-linkedin" %></li>
+    </ul>
   </div>
 </div>

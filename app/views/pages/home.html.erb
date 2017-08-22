@@ -1,5 +1,48 @@
-<h1>Pages#home1</h1>
+<h1>Artixvy Homepage </h1>
+<p>Enjoy</p>
 <p>Find me in app/views/pages/home.html.erb</p>
 
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.lcc.ca/uploaded/Images_2016_2017/Student_Life_2016_2017/Art/Student_LIfe_Art_MS_LION.jpg');">
+  <div class="banner-content">
+    <h1>Welcome to Artixvy</h1>
+    <p>The home of buying and selling art</p>
 
-<%= link_to 'sign_out', '/users/sign_out' %>
+  <%= simple_form_for(@artworks), url: artworks_path, method: :get do |f| %>
+      <%= f.label :title %>
+      <%= f.input :title %>
+
+      <%= f.label :category %>
+      <%= f.input :category %>
+
+      <%= f.submit %>
+    <% end %>
+
+  </div>
+</div>
+<!-- Need to add an if statement to make this work
+depending on whether or not the user is signed in or not?
+<%= link_to 'sign_out', '/users/sign_out' %> -->
+
+
+<!-- <script>
+  $(function() {
+var body = $(‘.banner’);
+var backgrounds = new Array(
+‘url("https://kitt.lewagon.com/placeholder/cities/london")’,
+‘url("https://kitt.lewagon.com/placeholder/cities/berlin")’
+);
+var current = 0;
+
+function nextBackground() {
+body.css(
+‘background’,
+backgrounds[current = ++current ]
+);
+
+setTimeout(nextBackground, 1000);
+}
+setTimeout(nextBackground, 1000);
+body.style.backgroundImage = backgrounds[0];
+});
+</script>
+ -->
