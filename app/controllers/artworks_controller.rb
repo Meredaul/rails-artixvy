@@ -1,7 +1,6 @@
-class ArtworkController < ApplicationController
+class ArtworksController < ApplicationController
 
   def index
-    # params[:search]
 
     @artworks = Artwork.all.reject { |artwork| artwork.purchase || artwork.user == current_user }
     #mutiple input
@@ -9,7 +8,7 @@ class ArtworkController < ApplicationController
       @artworks = []
       artworks_category = []
       Artwork.where(category: params[:category]).map do |artwork|
-        artworks_category << artwork
+        @artworks << artwork
       end
       artworks_category.each do |artwork|
         @artworks << artwork if artwork.title.downcase == params[:title].downcase
