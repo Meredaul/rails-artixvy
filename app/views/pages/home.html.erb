@@ -7,21 +7,18 @@
     <h1>Welcome to Artixvy</h1>
     <p>The home of buying and selling art</p>
 
-  <%= simple_form_for(@artworks), url: artworks_path, method: :get do |f| %>
-      <%= f.label :title %>
-      <%= f.input :title %>
 
-      <%= f.label :category %>
-      <%= f.input :category %>
-
-      <%= f.submit %>
+    <%= form_tag artwork_index_path, method: 'get' do %>
+        <%= text_field_tag :title, search[:title] %>
+        <%= text_field_tag :category, search[:category] %>
+        <%= submit_tag "Search", :name => nil %>
     <% end %>
 
   </div>
 </div>
 <!-- Need to add an if statement to make this work
-depending on whether or not the user is signed in or not?
-<%= link_to 'sign_out', '/users/sign_out' %> -->
+depending on whether or not the user is signed in or not? -->
+ <%= link_to 'sign_out', '/users/sign_out', method: :delete %>
 
 
 <!-- <script>

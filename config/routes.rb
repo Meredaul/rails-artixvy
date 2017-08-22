@@ -4,9 +4,13 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :artwork, only: [:index, :new, :create, :destroy]
+  # resources :artwork, only: [:index, :new, :create, :destroy]
 
-  resources :artwork, only: [:show] do
+  # resources :artwork, only: [:show] do
+  #   resources :purchases, only: [:create]
+  # end
+
+  resources :artwork, only: [:show, :index, :new, :create, :destroy] do
     resources :purchases, only: [:create]
   end
 

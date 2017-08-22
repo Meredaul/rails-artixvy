@@ -1,6 +1,8 @@
-class ArtworksController < ApplicationController
+class ArtworkController < ApplicationController
 
   def index
+
+    # params[:search]
 
     @artworks = Artwork.all.reject { |artwork| artwork.purchase || artwork.user == current_user }
     #mutiple input
