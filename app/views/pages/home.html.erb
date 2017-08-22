@@ -7,13 +7,13 @@
     <h1>Welcome to Artixvy</h1>
     <p>The home of buying and selling art</p>
 
-
+    <div class="search-form">
     <%= form_tag artwork_index_path, method: 'get' do %>
         <%= text_field_tag :title %>
         <%= text_field_tag :category %>
         <%= submit_tag "Search", :name => nil %>
     <% end %>
-
+    </div>
   </div>
 </div>
 <!-- Need to add an if statement to make this work
