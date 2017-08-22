@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :artwork, dependent: :nullify
-  # has_many :purchases
+  has_many :purchases
   # has_many :bought_artworks, through: :purchases, source: :artworks
+
 end

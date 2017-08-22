@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821155716) do
+ActiveRecord::Schema.define(version: 20170822095237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artworks", force: :cascade do |t|
+    t.float    "price"
+    t.string   "category"
+    t.string   "title"
+    t.string   "size"
+    t.date     "date"
+    t.boolean  "sold",       default: false
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["user_id"], name: "index_artworks_on_user_id", using: :btree
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "artwork_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artwork_id"], name: "index_purchases_on_artwork_id", using: :btree
+    t.index ["user_id"], name: "index_purchases_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +54,7 @@ ActiveRecord::Schema.define(version: 20170821155716) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "artworks", "users"
+  add_foreign_key "purchases", "artworks"
+  add_foreign_key "purchases", "users"
 end
