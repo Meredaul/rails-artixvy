@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+  Artwork.destroy_all
+  Artwork.create!(title: "Chasing the sun", price: 1000, size: "500x500 cm", category: "Universe", image_url: "/assets/images/Picture_2.jpg")
+  Artwork.create!(title: "Butterflies", price: 2000, size: "600x500 cm", category: "Realism", image_url: "url")
+  Artwork.create!(title: "Refugees", price: 3000, size: "700x500 cm", category: "Modern Realism", image_url: "url")
+  Artwork.create!(title: "A night in Paris", price: 4000, size: "800x500 cm", category: "Cubism", image_url: "url")
+  Artwork.create!(title: "Ronnie Scotts", price: 5000, size: "900x500 cm", category: "Cubism", image_url: "url")
+  Artwork.create!(title: "Why?", price: 6000, size: "100x500 cm", category: "Romantic", image_url: "url")
+  Artwork.create!(title: "Universe", price: 7000, size: "200x500 cm", category: "Funny", image_url: "url")
+  Artwork.create!(title: "In the hood", price: 8000, size: "300x500 cm", category: "Sad", image_url: "url")
+  Artwork.create!(title: "Chasing you", price: 9000, size: "400x500 cm", category: "Romantic", image_url: "url")
