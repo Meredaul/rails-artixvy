@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 gem 'devise'
 
 gem 'figaro'
