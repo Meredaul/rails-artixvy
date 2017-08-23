@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
+
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'devise'
