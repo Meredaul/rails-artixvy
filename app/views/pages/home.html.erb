@@ -9,8 +9,8 @@
 
 
     <%= form_tag artwork_index_path, method: 'get' do %>
-        <%= text_field_tag :title, search[:title] %>
-        <%= text_field_tag :category, search[:category] %>
+        <%= text_field_tag :title %>
+        <%= text_field_tag :category %>
         <%= submit_tag "Search", :name => nil %>
     <% end %>
 
