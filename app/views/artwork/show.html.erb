@@ -1,0 +1,13 @@
+  <div class="container">
+      <div class="info">
+      <%= image_tag(@artwork.image_url) %>
+        <h2><%= @artwork.title %></h2>
+          <ul>
+            <li><%= @artwork.category %></li>
+            <li><%= @artwork.price %></li>
+            <li><%= @artwork.size %></li>
+            <li><%= @artwork.created_at %></li>
+          </ul>
+        </div>
+  </div>
+
