@@ -1,24 +1,20 @@
-<h1>Artixvy Homepage </h1>
-<p>Enjoy</p>
-<p>Find me in app/views/pages/home.html.erb</p>
-
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.lcc.ca/uploaded/Images_2016_2017/Student_Life_2016_2017/Art/Student_LIfe_Art_MS_LION.jpg');">
   <div class="banner-content">
     <h1>Welcome to Artixvy</h1>
-    <p>The home of buying and selling art</p>
+    <p>The home of artists and collectors</p>
 
-
+    <div class="search-form">
     <%= form_tag artwork_index_path, method: 'get' do %>
-        <%= text_field_tag :title %>
-        <%= text_field_tag :category %>
-        <%= submit_tag "Search", :name => nil %>
+      <%= text_field_tag :title, "", :placeholder => 'Title', class: 'text-form' %>
+      <%= text_field_tag :category, "", :placeholder => 'Category', class: 'text-form' %>
+      <%= submit_tag "Search", :class => "submit-btn btn btn-primary" %>
     <% end %>
-
+    </div>
   </div>
 </div>
 <!-- Need to add an if statement to make this work
 depending on whether or not the user is signed in or not? -->
- <%= link_to 'sign_out', '/users/sign_out', method: :delete %>
+<!--  <%= link_to 'sign_out', '/users/sign_out', method: :delete %> -->
 
 
 <!-- <script>
