@@ -1,0 +1,11 @@
+
+
+<%= simple_form_for @artwork, url: artwork_index_path do |f| %>
+  <%= f.input :title  %>
+  <%= f.input :category  %>
+  <%= f.input :price  %>
+  <%= f.input :size  %>
+  <%= f.input :photo %>
+
+  <%= f.button :submit, "Add Artwork"  %>
+<% end %>

@@ -3,6 +3,7 @@
       <%= image_tag(@artwork.image_url) %>
         <h2><%= @artwork.title %></h2>
           <ul>
+            <li><%= @artwork.user.first_name %></li>
             <li><%= @artwork.category %></li>
             <li><%= @artwork.price %></li>
             <li><%= @artwork.size %></li>
