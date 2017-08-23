@@ -25,6 +25,11 @@
               <% end %>
             </li>
             <li>
+              <%= link_to new_artwork_path do %>
+                <i class= "fa fa-new"></i> <%= t(".new", default: "New Artwork") %>
+                <% end %>
+            </li>
+            <li>
               <%= link_to "#" do %>
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
