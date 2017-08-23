@@ -39,6 +39,7 @@ class ArtworkController < ApplicationController
 
   def show
     @artwork = Artwork.find(params[:id])
+    @artwork_coordinates = { lat: @artwork.latitude, lng: @artwork.longitude }
   end
 
 
@@ -61,6 +62,6 @@ class ArtworkController < ApplicationController
   private
 
   def artwork_params
-    params.require(:artwork).permit(:title, :size, :picture, :price, :category, :date, :photo, :photo_cache)
+    params.require(:artwork).permit(:title, :size, :picture, :price, :category, :date, :photo, :photo_cache, :address)
   end
 end

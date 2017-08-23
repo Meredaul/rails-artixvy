@@ -1,6 +1,15 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
+gem 'coffee-rails'
+gem 'gmaps4rails'
+gem 'geocoder'
+
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 

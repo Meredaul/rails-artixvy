@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   resources :purchases, only: [:destroy]
 
+  get '/dashboard', to: 'pages#dashboard'
+
 end
+

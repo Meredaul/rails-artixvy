@@ -26,6 +26,7 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+  visibility: hidden;
 }
 .card-description h2 {
   font-size: 24px;
@@ -51,4 +52,9 @@
 
 .card :hover{
   color: black;
+}
+
+.card:hover .card-description {
+    visibility: visible;
+    opacity: 1;
 }
