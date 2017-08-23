@@ -7,19 +7,24 @@
 <!-- #    end %> -->
 <!-- #  end %> -->
 
-  <div class="container">
-      <div class="info">
-      <div class="photo">
-        <%= image_tag(@artwork.photo) %>
-      </div>
-        <h2><%= @artwork.title %></h2>
-          <ul>
-            <li><%= @artwork.category %></li>
-            <li><%= @artwork.price %></li>
-            <li><%= @artwork.size %></li>
-            <li><%= @artwork.created_at %></li>
-
-          </ul>
+  <div class="artwork-container">
+    <h2 class="text-center"><%= @artwork.title %></h2>
+      <div class="show-row">
+        <div class="col-xs-12 col-sm-4 col-md-5">
+          <div class="info">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Category: </strong><%= @artwork.category %></li>
+              <li class="list-group-item"><strong>Price: </strong>£<%= @artwork.price%></li>
+              <li class="list-group-item"><strong>Size: </strong><%= @artwork.size%> (in cm)</li>
+              <li class="list-group-item"><strong>Painted the: </strong><%= @artwork.created_at %></li>
+            </ul>
+          </div>
+          <%= button_to "Buy", root_path,
+          class: "btn btn-primary center-block buy-btn", method: :get %>
         </div>
-  </div>
+        <div class="col-xs-12 col-sm-6 col-md-7 image-container text-center">
+          <%= image_tag(@artwork.photo, class: "image_sizer img-responsive img-rounded img-thumbnail") %>
+        </div>
+      </div>
+    </div>
 

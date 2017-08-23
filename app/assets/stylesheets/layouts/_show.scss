@@ -1,0 +1,31 @@
+
+.show-row{
+  display: flex;
+  margin: 40px;
+}
+.image_sizer {
+  max-width: 80vh;
+  max-height: 70vh;
+  flex: 0 0 20%
+}
+
+.image-container{
+
+max-width: 70%
+}
+
+
+.info h2{
+  margin-top: 40px;
+  margin-left: 100px;
+}
+
+.info li{
+  list-style: none;
+}
+
+.buy-btn{
+  padding: 10px 40px;
+  font-size: 20px;
+  border-radius: 10px;
+}
