@@ -1,12 +1,16 @@
 .footer {
-  display: flex;
   align-items: center;
   justify-content: space-between;
+  list-style-type: none;
+  background-color: rgb(128,128,128);
+  margin: none;
 }
 
-.footer ul li a {
+.footer ul li {
+  list-style-type: none;
+  // padding: 10px 15px;
 
-  padding: 10px 15px;
+
 }
 
 .footer-btns {
@@ -14,5 +18,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
 
+.text-align{
+   display: flex;
+   justify-content: space-between;
+   padding: 10px 10px;
+}
+
+.fa {
+  color:black
 }
