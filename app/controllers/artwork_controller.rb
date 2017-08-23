@@ -3,6 +3,13 @@ class ArtworkController < ApplicationController
   def index
     # params[:search]
 
+    @hash = Gmaps4rails.build_markers(Artwork.all) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
+
+    # put @artworks above, it was for the test
+
     @artworks = Artwork.all.reject { |artwork| artwork.purchase || artwork.user == current_user }
     #mutiple input
     if params[:category].present? && params[:title].present?
