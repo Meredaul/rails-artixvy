@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
-
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
