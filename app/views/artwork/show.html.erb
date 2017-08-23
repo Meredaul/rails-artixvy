@@ -1,3 +1,4 @@
+
 <!-- # < content_for(:after_js) do %> -->
  <!--    javascript_tag do %> -->
 <!-- #     $(document).ready(function() { -->
@@ -5,3 +6,20 @@
 <!-- #     }); -->
 <!-- #    end %> -->
 <!-- #  end %> -->
+
+  <div class="container">
+      <div class="info">
+      <div class="photo">
+        <%= image_tag(@artwork.photo) %>
+      </div>
+        <h2><%= @artwork.title %></h2>
+          <ul>
+            <li><%= @artwork.category %></li>
+            <li><%= @artwork.price %></li>
+            <li><%= @artwork.size %></li>
+            <li><%= @artwork.created_at %></li>
+
+          </ul>
+        </div>
+  </div>
+

@@ -44,7 +44,7 @@ class ArtworkController < ApplicationController
 
 
   def new
-    @artwork = Artwork.new
+    @artwork = Artwork.new()
   end
 
   def create
@@ -62,6 +62,6 @@ class ArtworkController < ApplicationController
   private
 
   def artwork_params
-    params.require(:artwork).permit(:title, :size, :picture, :price, :category, :date)
+    params.require(:artwork).permit(:title, :size, :picture, :price, :category, :date, :photo, :photo_cache, :address)
   end
 end

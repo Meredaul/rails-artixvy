@@ -1,38 +1,25 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 card">
-      <div class="card" style="background-image: url('<%= asset_path 'Picture_1.jpg' %>')">
-        <div class="card-category">Jordan Picasso</div>
-          <div class="card-description">
-            <h2>Random ass art one</h2>
-            <p>Very cool city, the best</p>
+  <h1>Artwork</h1>
+    <% @artworks.each do |artwork| %>
+        <div class="col-xs-12 col-sm-4">
+      <%= link_to artwork_path(artwork) do %>
+      <% if artwork.photo? %>
+        <% img = cl_image_path artwork.photo %>
+      <% else %>
+        <% image_path 'logo.png' %>
+      <% end %>
+          <div class="card" style="background-image: url('<%= img %>')">
+            <div class="card-category">Jordan Picasso</div>
+              <div class="card-description">
+                <h2><%= artwork.title %></h2>
+                <p><%= artwork.category  %></p>
+              </div>
+                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/jordas">
           </div>
-            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/jordas">
-            <a class="card-link" href="#" ></a>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-4 card">
-      <div class="card" style="background-image: url('<%= asset_path 'Picture_2.jpg' %>')">
-        <div class="card-category">Alesandro Da Vinci</div>
-          <div class="card-description">
-            <h2>Random ass art two</h2>
-            <p>Very cool city, the best</p>
-          </div>
-            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/loedn">
-            <a class="card-link" href="#" ></a>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-4 card">
-      <div class="card" style="background-image: url('<%= asset_path 'Picture_3.jpg' %>')">
-        <div class="card-category">Zeloy Gogh</div>
-          <div class="card-description">
-            <h2>Random ass art three</h2>
-            <p>Very cool city, the best</p>
-          </div>
-            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/zmolina">
-            <a class="card-link" href="#" ></a>
-      </div>
-    </div>
+      <% end %>
+        </div>
+    <% end %>
   </div>
 </div>
 
