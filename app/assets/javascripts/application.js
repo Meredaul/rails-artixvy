@@ -5,4 +5,5 @@
 //= require bootstrap-sprockets
 //= require gmaps/google
 //= require underscore
+//= require typed
 //= require_tree .
