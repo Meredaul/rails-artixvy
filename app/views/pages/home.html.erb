@@ -2,11 +2,10 @@
   <div class="banner-content">
     <h1>Welcome to Artixvy</h1>
     <p>Home of artists and collectors</p>
-
     <div class="search-form">
     <%= form_tag artwork_index_path, method: 'get' do %>
-      <%= text_field_tag :title, "", :placeholder => 'Title', class: 'text-form' %>
-      <%= text_field_tag :category, "", :placeholder => 'Category', class: 'text-form' %>
+      <%= text_field_tag :title, "", :placeholder => 'Title', id: "typed" %>
+      <%= text_field_tag :category, "", :placeholder => 'Category' %>
       <%= submit_tag "Search", :class => "submit-btn btn btn-primary" %>
     <% end %>
     </div>
@@ -14,8 +13,7 @@
 </div>
 <!-- Need to add an if statement to make this work
 depending on whether or not the user is signed in or not? -->
-<!--  <%= link_to 'sign_out', '/users/sign_out', method: :delete %> -->
-
+<%#= link_to 'sign_out', '/users/sign_out', method: :delete %>
 
 <!-- <script>
   $(function() {
@@ -39,3 +37,17 @@ body.style.backgroundImage = backgrounds[0];
 });
 </script>
  -->
+
+ <% content_for(:after_js) do %>
+   <script>
+
+  var options = {
+    strings: ["This is a JavaScript library", "This is an ES6 module"],
+    loop: true,
+    typeSpeed: 50,
+    shuffle: true
+  }
+
+  var typed = new Typed("#typed", options);
+   </script>
+ <% end %>
