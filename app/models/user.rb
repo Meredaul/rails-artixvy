@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -8,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :artwork, dependent: :nullify
   has_many :purchases
+
+  after_create :send_welcome_email
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -48,6 +49,10 @@ class User < ApplicationRecord
     user
   end
 
-  # has_many :bought_artworks, through: :purchases, source: :artworks
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
 
 end

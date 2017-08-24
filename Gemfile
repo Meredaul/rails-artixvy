@@ -5,6 +5,8 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
+gem "letter_opener", group: :development
+
 gem 'coffee-rails'
 gem 'gmaps4rails'
 gem 'geocoder'
