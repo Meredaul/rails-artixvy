@@ -52,7 +52,6 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
-    byebug
     UserMailer.welcome(self).deliver_now
   end
 
