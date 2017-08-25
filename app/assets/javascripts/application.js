@@ -1,3 +1,4 @@
+//= require google_maps_autocomplete
 //= require jquery
 //= require jquery_ujs
 //= require underscore
