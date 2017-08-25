@@ -13,7 +13,7 @@
         <!-- SIDEBAR USER TITLE -->
         <div class="profile-usertitle">
           <div class="profile-usertitle-name">
-            Laury Meredith
+             Laury Meredith
           </div>
           <div class="profile-usertitle-job">
             Developer
@@ -25,60 +25,73 @@
         <div class="profile-usermenu">
           <ul class="nav">
             <li class="active">
-              <a href="#">
-              <i class="glyphicon glyphicon-picture"></i>
-              Purchases</a>
+
+              <a href="#purchases">
+                <i class="glyphicon glyphicon-picture"></i>
+                Purchases
+              </a>
             </li>
             <li>
-              <a href="#">
-              <i class="glyphicon glyphicon-sunglasses"></i>
-              Creations sold</a>
+              <a href="#sold">
+                <i class="glyphicon glyphicon-sunglasses"></i>
+                Creations sold
+              </a>
             </li>
             <li>
-              <a href="#">
-              <i class="glyphicon glyphicon-hourglass"></i>
-              Pending </a>
-            </li>
-            <li>
-              <a href="#">
-              <i class="glyphicon glyphicon-piggy-bank"></i>
-              Wish list </a>
-            </li>
-            <li>
-              <a href="#">
-              <i class="glyphicon glyphicon-shopping-cart"></i>
-              Basket </a>
+              <a href="#pending">
+                <i class="glyphicon glyphicon-hourglass"></i>
+                Pending
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </div>
-    <!-- END MENU -->
+     <!-- END MENU -->
     <div class="col-md-9">
-      <div class="profile-content">
+      <div class="profile-content"  id="purchases">
+        <h3>Purchases</h3>
         <div class="scrollmenu">
-          <a href="#">
-            <img border="0" alt="Placeholder art" src="http://coolwildlife.com/wp-content/uploads/galleries/post-3004/Fox%20Picture%20003.jpg" width="400" height="400"></a>
-            <a href="#">
-            <img border="0" alt="Placeholder art" src="http://webneel.com/daily/sites/default/files/images/daily/05-2014/12-sunrise-picture.jpg" width="400" height="400"></a>
-            <a href="#">
-            <img border="0" alt="Placeholder art" src="http://coolwildlife.com/wp-content/uploads/galleries/post-3004/Fox%20Picture%20003.jpg" width="400" height="400"></a>
-            <a href="#">
-            <img border="0" alt="Placeholder art" src="http://webneel.com/daily/sites/default/files/images/daily/05-2014/12-sunrise-picture.jpg" width="400" height="400"></a>
+          <ul>
+            <% @purchases.each do | purchase | %>
+              <%= link_to artwork_path(purchase.artwork) do %>
+                <li>
+                  <%= cl_image_tag purchase.artwork.photo %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
         </div>
       </div>
 
-      <div class="profile-content">
+      <div class="profile-content"  id="sold">
+        <h3>Creations sold</h3>
         <div class="scrollmenu">
-          <a href="#">
-            <img border="0" alt="Placeholder art" src="http://webneel.com/daily/sites/default/files/images/daily/05-2014/12-sunrise-picture.jpg" width="400" height="400"></a>
-            <a href="#">
-            <img border="0" alt="Placeholder art" src="http://webneel.com/daily/sites/default/files/images/daily/05-2014/12-sunrise-picture.jpg" width="400" height="400"></a>
-            <a href="#">
-            <img border="0" alt="Placeholder art" src="http://coolwildlife.com/wp-content/uploads/galleries/post-3004/Fox%20Picture%20003.jpg" width="400" height="400"></a>
-            <a href="#">
-            <img border="0" alt="Placeholder art" src="http://webneel.com/daily/sites/default/files/images/daily/05-2014/12-sunrise-picture.jpg" width="400" height="400"></a>
+          <ul>
+            <% @user_artworks_sold.each do | notsold | %>
+              <%= link_to artwork_path(notsold) do %>
+                <li>
+                  <%= cl_image_tag notsold.photo.path %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
         </div>
+      </div>
+
+      <div class="profile-content"  id="pending">
+        <h3>Pending</h3>
+        <div class="scrollmenu">
+          <ul>
+            <% @user_artworks_notsold .each do | pending | %>
+              <%= link_to artwork_path(pending) do %>
+                <li>
+                  <%= cl_image_tag pending.photo.path %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+         </div>
       </div>
     </div>
   </div>

@@ -6,8 +6,7 @@
   align-items: center;
   justify-content: space-between;
   list-style-type: none;
-  background-color: rgb(128,128,128);
-  opacity: 0.7;
+  background-color: rgb(30,30,30);
   margin: none;
 
 }
@@ -15,8 +14,10 @@
 .footer ul li {
   list-style-type: none;
   // padding: 10px 15px;
+}
 
-
+.copyright p {
+  color: rgb(140,140,140);
 }
 
 .footer-btns {
@@ -33,6 +34,6 @@
 }
 
 .fa {
-  color:black
+  color: rgb(140,140,140);
 }
 
