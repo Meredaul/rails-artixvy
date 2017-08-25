@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-md-8 text-center">
-        <h1>Artwork</h1>
+        <h1 class= index-header>Artwork</h1>
       </div>
       <div class="col-xs-12 col-md-8">
         <% @artworks.each do |artwork| %>
@@ -13,7 +13,7 @@
             <% else %>
               <% image_path 'logo.png' %>
             <% end %>
-            <div class="card" style="background-image: url('<%= img %>')">
+            <div class="card rounded" style="background-image: url('<%= img %>')">
             <div class="overlay">
               <div class="card-category">
                 <%= artwork.user.first_name %>

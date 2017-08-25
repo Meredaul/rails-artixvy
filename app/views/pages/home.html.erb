@@ -1,10 +1,9 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.lcc.ca/uploaded/Images_2016_2017/Student_Life_2016_2017/Art/Student_LIfe_Art_MS_LION.jpg');">
   <div class="banner-content">
-    <h1>Welcome to Artixvy</h1>
-    <p>Home of artists and collectors</p>
+    <h1 id="typed"></h1>
     <div class="search-form">
     <%= form_tag artwork_index_path, method: 'get' do %>
-      <%= text_field_tag :title, "", :placeholder => 'Title', id: "typed" %>
+      <%= text_field_tag :title, "", :placeholder => 'Title' %>
       <%= text_field_tag :category, "", :placeholder => 'Category' %>
       <%= submit_tag "Search", :class => "submit-btn btn btn-primary" %>
     <% end %>
@@ -42,10 +41,10 @@ body.style.backgroundImage = backgrounds[0];
    <script>
 
   var options = {
-    strings: ["This is a JavaScript library", "This is an ES6 module"],
-    loop: true,
-    typeSpeed: 50,
-    shuffle: true
+    strings: ["Welcome to Artixvy", "Home of artists and collectors", "Welcome to Artixvy"],
+    loop: false,
+    typeSpeed: 70,
+    shuffle: false
   }
 
   var typed = new Typed("#typed", options);

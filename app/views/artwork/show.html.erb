@@ -7,27 +7,47 @@
 <!-- #    end %> -->
 <!-- #  end %> -->
 
-  <div class="artwork-container">
-    <h2 class="text-center"><%= @artwork.title %></h2>
-      <div class="show-row">
-        <div class="col-xs-12 col-sm-4 col-md-5">
-          <div class="info">
-            <ul class="list-group">
-              <li class="list-group-item"><strong>Category: </strong><%= @artwork.category %></li>
-              <li class="list-group-item"><strong>Price: </strong>£<%= @artwork.price%></li>
-              <li class="list-group-item"><strong>Size: </strong><%= @artwork.size%> (in cm)</li>
-              <li class="list-group-item"><strong>Painted the: </strong><%= @artwork.created_at %></li>
-            </ul>
-          </div>
-          <%= button_to "Buy", root_path,
-          class: "btn btn-primary center-block buy-btn", method: :get %>
+
+
+<div class="container artwork-container">
+  <div class="artwork-profile">
+    <div class="artwork-user">
+      <h2 class="text-center"><%= @artwork.title %></h2>
+      <div class="user-title">
+        <div class="user-img">
+          <% if @artwork.user.facebook_picture_url? %>
+              <%= cl_image_tag @artwork.user.facebook_picture_url, class: "showcard-user" %>
+          <% elsif @artwork.user.google_picture_url? %>
+              <%= cl_image_tag @artwork.user.google_picture_url, class: "showcard-user" %>
+          <% else %>
+              <%= cl_image_tag "Laury-avatar_phbc9i", class: "showcard-user" %>
+          <% end %>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-7 image-container text-center">
-          <%= image_tag(@artwork.photo, class: "image_sizer img-responsive img-rounded img-thumbnail") %>
-        </div>
+        <h3><%= @artwork.user.first_name %></h3>
       </div>
     </div>
-    <div id="map-show" style="width: 100%; height: 600px;"></div>
+    <div class="artwork-details">
+       <ul class="list-group">
+          <li class="list-group-item"><strong>Category: </strong><%= @artwork.category %></li>
+          <li class="list-group-item"><strong>Price: </strong>£<%= @artwork.price%></li>
+          <li class="list-group-item"><strong>Size: </strong><%= @artwork.size%> (in cm)</li>
+          <li class="list-group-item"><strong>Painted the: </strong><%= @artwork.created_at %></li>
+          <li class="list-group-item"><strong>Address: </strong><%= @artwork.address %></li>
+        </ul>
+
+    </div>
+    <div class="artowrk-button">
+    <%= button_to "Buy", artwork_purchases_path(params[:id]), class: "btn btn-primary center-block buy-btn" %> <!-- method: :post -->
+    </div>
+  </div>
+
+  <div class="artwork-img">
+    <%= image_tag(@artwork.photo, class: "image_sizer img-responsive img-rounded") %>
+
+  </div>
+  </div>
+  <div id="map-show" style="width: 100%; height: 600px;">
+  </div>
 
 <% content_for(:after_js) do %>
   <script>

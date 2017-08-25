@@ -1,11 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo" %>
-  <% end %>
-
-  <% if current_user %>
-    <%= link_to 'Dashboard', dashboard_path %>
+    <%= cl_image_tag("logo_bj7j9a.png") %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -16,7 +12,6 @@
       <!-- Links when logged in -->
       <%= link_to "", "#", class: "navbar-wagon-item navbar-wagon-link glyphicon glyphicon-shopping-cart" %>
       <%= link_to "", "#", class: "navbar-wagon-item navbar-wagon-link glyphicon glyphicon-heart" %>
-      <%= link_to "Country", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -32,9 +27,15 @@
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
+            <li> <% if current_user %>
+              <%= link_to dashboard_path do %>
+              <i class="fa fa-id-card" aria-hidden="true"></i> <%= t(".dashboard", default: "Dashboard")%>
+            <% end %>
+            <% end %>
+            </li>
             <li>
               <%= link_to new_artwork_path do %>
-                <i class= "fa fa-new"></i> <%= t(".new", default: "New Artwork") %>
+                <i class="fa fa-plus" aria-hidden="true"></i> <%= t(".new", default: "New Artwork") %>
                 <% end %>
             </li>
             <li>

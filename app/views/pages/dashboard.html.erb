@@ -2,4 +2,98 @@
 <!-- list creation: Artwork.where(user_id == current.user_id) -->
 
 
-<p><%= current_user.purchases %> <p>
+<div class="container">
+  <div class="row profile">
+    <div class="col-md-3">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          <img src="http://kitt.lewagon.com/placeholder/users/meredaul" class="img-responsive" alt="">
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name">
+             Laury Meredith
+          </div>
+          <div class="profile-usertitle-job">
+            Developer
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li class="active">
+              <a href="#purchases">
+                <i class="glyphicon glyphicon-picture"></i>
+                Purchases
+              </a>
+            </li>
+            <li>
+              <a href="#sold">
+                <i class="glyphicon glyphicon-sunglasses"></i>
+                Creations sold
+              </a>
+            </li>
+            <li>
+              <a href="#pending">
+                <i class="glyphicon glyphicon-hourglass"></i>
+                Pending
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+     <!-- END MENU -->
+    <div class="col-md-9">
+      <div class="profile-content"  id="purchases">
+        <h3>Purchases</h3>
+        <div class="scrollmenu">
+          <ul>
+            <% @purchases.each do | purchase | %>
+              <%= link_to artwork_path(purchase.artwork) do %>
+                <li>
+                  <%= cl_image_tag purchase.artwork.photo %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="profile-content"  id="sold">
+        <h3>Creations sold</h3>
+        <div class="scrollmenu">
+          <ul>
+            <% @user_artworks_sold.each do | notsold | %>
+              <%= link_to artwork_path(notsold) do %>
+                <li>
+                  <%= cl_image_tag notsold.photo.path %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="profile-content"  id="pending">
+        <h3>Pending</h3>
+        <div class="scrollmenu">
+          <ul>
+            <% @user_artworks_notsold .each do | pending | %>
+              <%= link_to artwork_path(pending) do %>
+                <li>
+                  <%= cl_image_tag pending.photo.path %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+         </div>
+      </div>
+
+    </div>
+  </div>
+</div>
