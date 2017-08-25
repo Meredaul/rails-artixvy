@@ -8,8 +8,8 @@ class PagesController < ApplicationController
 
   def dashboard
     # @purchases = current_user.purchases
-    # @user_artworks_sold = current_user.artworks.select { |user_artwork| user_artwork.purchase }
-    # @user_artworks_notsold = current_user.artworks.reject { |user_artwork| user_artwork.purchase }
+    # @user_artworks_sold = current_user.artwork.select { |user_artwork| user_artwork.purchase }
+    # @user_artworks_notsold = current_user.artwork.reject { |user_artwork| user_artwork.purchase }
   end
 
 end
