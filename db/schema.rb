@@ -25,14 +25,12 @@ ActiveRecord::Schema.define(version: 20170824190209) do
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "image_url"
     t.string   "photo"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "image_url"
-    t.string   "zip_code"
-    t.string   "city"
-    t.string   "country"
+
     t.index ["user_id"], name: "index_artworks_on_user_id", using: :btree
   end
 

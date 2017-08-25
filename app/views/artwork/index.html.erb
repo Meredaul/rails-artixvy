@@ -14,6 +14,7 @@
               <% image_path 'logo.png' %>
             <% end %>
             <div class="card" style="background-image: url('<%= img %>')">
+            <div class="overlay">
               <div class="card-category">
                 <%= artwork.user.first_name %>
               </div>
@@ -29,6 +30,7 @@
               <% else %>
                 <%= cl_image_tag "Laury-avatar_phbc9i", class: "card-user" %>
               <% end %>
+            </div>
             </div>
              <% end %>
           </div>
