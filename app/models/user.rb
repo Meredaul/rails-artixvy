@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   has_many :artwork, dependent: :nullify
-  has_many :purchases
+  has_many :purchases, dependent: :nullify
 
   after_create :send_welcome_email
 
