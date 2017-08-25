@@ -10,6 +10,7 @@ gem "letter_opener", group: :development
 gem 'coffee-rails'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'country_select'
 
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'

@@ -1,8 +1,8 @@
 function onPlaceChanged() {
-  const place = this.getPlace();
-  const components = getAddressComponents(place);
+  var place = this.getPlace();
+  var components = getAddressComponents(place);
 
-  const artworkAddress = document.getElementById('artwork_address');
+  var artworkAddress = document.getElementById('artwork_address');
   artworkAddress.blur();
   artworkAddress.value = components.address;
 
@@ -10,25 +10,17 @@ function onPlaceChanged() {
   document.getElementById('artwork_city').value = components.city;
 
   if (components.country_code) {
-    const selector = '#artwork_country option[value="' + components.country_code + '"]';
+    var selector = '#artwork_country option[value="' + components.country_code + '"]';
     document.querySelector(selector).selected = true;
   }
 }
 
 function getAddressComponents(place) {
-  // If you want lat/lng, you can look at:
-  // - place.geometry.location.lat()
-  // - place.geometry.location.lng()
-
-  if (window.console && typeof console.log === "function") {
-    console.log(place);
-  }
-
-  const street_number = null;
-  const route = null;
-  const zip_code = null;
-  const city = null;
-  const country_code = null;
+  var street_number = null;
+  var route = null;
+  var zip_code = null;
+  var city = null;
+  var country_code = null;
   for (var i in place.address_components) {
     var component = place.address_components[i];
     for (var j in component.types) {
@@ -59,9 +51,8 @@ function getAddressComponents(place) {
 
 document.addEventListener("DOMContentLoaded", function() {
   var artworkAddress = document.getElementById('artwork_address');
-
   if (artworkAddress) {
-    var autocomplete = new google.maps.places.Autocomplete(artworkAddress, { types: ['geocode'] });
+    var autocomplete = new google.maps.places.Autocomplete(artworkAddress, {});
     google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
     google.maps.event.addDomListener(artworkAddress, 'keydown', function(e) {
       if (e.key === "Enter") {
