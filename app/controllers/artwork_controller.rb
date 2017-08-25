@@ -3,31 +3,34 @@ class ArtworkController < ApplicationController
   def index
     # params[:search]
 
-    artworks_with_coords = Artwork.all.reject { |a| a.latitude.nil? || a.longitude.nil? }
-    @hash = Gmaps4rails.build_markers(artworks_with_coords) do |flat, marker|
-      marker.lat flat.latitude
-      marker.lng flat.longitude
-    end
+    @artworks = Artwork.where.not(latitude: nil, longitude: nil)
+    @artworks = @artworks.select { |a| a.title =~ /#{params[:title]}/i } unless params[:title].blank?
+    @artworks = @artworks.select { |a| a.category =~ /#{params[:category]}/i } unless params[:category].blank?
 
     # put @artworks above, it was for the test
 
-    @artworks = Artwork.all.reject { |artwork| artwork.purchase || artwork.user == current_user }
+    # @artworks = Artwork.all.reject { |artwork| artwork.purchase || artwork.user == current_user }
     #mutiple input
-    if params[:category].present? && params[:title].present?
-      @artworks = []
-      artworks_category = []
-      Artwork.where(category: params[:category]).map do |artwork|
-        artworks_category << artwork
-      end
-      artworks_category.each do |artwork|
-        @artworks << artwork if artwork.title.downcase == params[:title].downcase
-      end
-    elsif params[:category].present?
-      @artworks = Artwork.where(category: params[:category])
-    elsif params[:title].present?
-      @artworks = Artwork.where(title: params[:title])
-    else
-      @artworks = Artwork.all
+    # if params[:category].present? && params[:title].present?
+    #   @artworks = []
+    #   artworks_category = []
+    #   Artwork.where(category: params[:category]).map do |artwork|
+    #     artworks_category << artwork
+    #   end
+    #   artworks_category.each do |artwork|
+    #     @artworks << artwork if artwork.title.downcase == params[:title].downcase
+    #   end
+    # elsif params[:category].present?
+    #   @artworks = Artwork.where(category: params[:category])
+    # elsif params[:title].present?
+    #   @artworks = Artwork.where(title: params[:title])
+    # else
+    #   @artworks = Artwork.all
+    # end
+
+    @hash = Gmaps4rails.build_markers(@artworks) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
     end
 
     #single input
@@ -40,9 +43,6 @@ class ArtworkController < ApplicationController
     #     @artworks << artwork
     #   end
     # end
-
-    return @artworks
-
   end
 
   def show
