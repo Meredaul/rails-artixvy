@@ -5,6 +5,6 @@ class PurchasesController < ApplicationController
     new_purchase.artwork = Artwork.find(params[:artwork_id])
     new_purchase.user = current_user
     new_purchase.save
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 end
